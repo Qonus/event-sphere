@@ -27,21 +27,20 @@ const Navbar = () => {
       <div className={styles.navbar__wrapper}>
         <div className={styles.navbar__head}>
         <Image 
-          src="/bilim-tau-icon.png"
+          src="/logo.png"
           alt="logo"
-          width={60}
-          height={60}/>
+          width={90}
+          height={90}/>
         <Link href="/" className={styles.logo}>
-          Bilim Tau
+          City Flow
         </Link>
         </div>
         
 
         {/* Desktop Menu */}
         <div className={styles.navLinks}>
-          <Link href="/" style={{textDecoration:'none', color:'white'}}>Главная</Link>
-          <Link href="/materials" style={{textDecoration:'none', color:'white'}}>Материалы</Link>
-          <Link href="/profile" style={{textDecoration:'none', color:'white'}}>Профиль</Link>
+          <Link href="/" style={{textDecoration:'none'}}>Главная</Link>
+          <Link href="/materials" style={{textDecoration:'none'}}>Поиск</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -55,9 +54,8 @@ const Navbar = () => {
       </div>
       {menuOpen && (
         <div className={styles.dropdownMenu}>
-          <Link href="/" style={{textDecoration:'none', color:'white'}} onClick={() => setMenuOpen(false)}>Главная</Link>
-          <Link href="/materials" style={{textDecoration:'none', color:'white'}} onClick={() => setMenuOpen(false)}>Материалы</Link>
-          <Link href="/profile" style={{textDecoration:'none', color:'white'}} onClick={() => setMenuOpen(false)}>Профиль</Link>
+          <Link href="/" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>Главная</Link>
+          <Link href="/materials" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>Поиск</Link>
         </div>
       )}
     </nav>
