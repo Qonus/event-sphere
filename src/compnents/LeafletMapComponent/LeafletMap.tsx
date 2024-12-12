@@ -15,20 +15,36 @@ L.Icon.Default.mergeOptions({
 
 const LeafletMap = () => {
   useEffect(() => {
-    const map = L.map('map').setView([51.505, -0.09], 13);
+    let map = L.map('map').setView([51.08, 71.43], 13);
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          map.setView([latitude, longitude], 13);
+          L.marker([latitude, longitude]).addTo(map).bindPopup('Вы здесь!').openPopup();
+        },
+        (error) => {
+          console.error('Geolocation Error:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation not supported by your browser.');
+    }
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    L.marker([51.505, -0.09])
-      .addTo(map)
-      .bindPopup('A pretty marker.<br> Easily customizable.')
-      .openPopup();
-
-    return () => {
-      map.remove();
-    };
+      map.on('click', (e: L.LeafletMouseEvent) => {
+        const { lat, lng } = e.latlng;
+        console.log(`Coordinates: ${lat}, ${lng}`);
+        L.marker([lat, lng]).addTo(map).bindPopup(`Coordinates: ${lat}, ${lng}`).openPopup();
+      });
+  
+      return () => {
+        map.off('click');
+      };
   }, []);
 
   return (
