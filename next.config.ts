@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(process.cwd(), "styles")],
-    prependData: `@import "main.scss";`,
+    prependData: `@import "../styles/main.scss";`,
   }
 };
 
