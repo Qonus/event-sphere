@@ -6,8 +6,7 @@ import {
 import styles from "./EventPostForm.module.scss";
 import { useState } from "react";
 
-export default function EventPostForm({ session }: any) {
-console.log(session);
+export default function EventPostForm({ user_id }: any) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState<string[]>([]);
@@ -32,7 +31,7 @@ console.log(session);
   
     try {
       const formData = new FormData();
-      formData.append("user_id", session?.user?.id);
+      formData.append("user_id", user_id);
       formData.append("title", title);
       formData.append("description", description);
       formData.append("start_time", startTime);
@@ -40,18 +39,13 @@ console.log(session);
       formData.append("coords", JSON.stringify(coords));
       formData.append("tags", JSON.stringify(tags));
       formData.append("image", image);
-      console.log(formData);
-      const res = await fetch(process.env.URL + "/api/events", {
+      const res = await fetch(`${process.env.URL}/api/events`, {
         method: "POST",
         body: formData,
       });
   
+      console.log(res);
       const data = await res.json();
-      if (res.ok) {
-        console.log("Event created successfully:", data);
-      } else {
-        console.error("Error creating event:", data.message);
-      }
     } catch (error) {
       console.error("An error occurred:", error);
     }
