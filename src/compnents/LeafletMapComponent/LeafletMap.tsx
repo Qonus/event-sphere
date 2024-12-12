@@ -13,6 +13,21 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
+const getAddressFromCoordinates = async (lat: number, lng: number) => {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Failed to fetch address');
+    const data = await response.json();
+    console.log('Address:', data.display_name);
+    return data.display_name;
+  } catch (error) {
+    console.error('Error getting address:', error);
+    return null;
+  }
+};
+
 const LeafletMap = () => {
   useEffect(() => {
     let map = L.map('map').setView([51.08, 71.43], 13);
@@ -36,10 +51,14 @@ const LeafletMap = () => {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-      map.on('click', (e: L.LeafletMouseEvent) => {
+      map.on('click', async (e: L.LeafletMouseEvent) => {
         const { lat, lng } = e.latlng;
         console.log(`Coordinates: ${lat}, ${lng}`);
-        L.marker([lat, lng]).addTo(map).bindPopup(`Coordinates: ${lat}, ${lng}`).openPopup();
+        const address = await getAddressFromCoordinates(lat, lng);
+        L.popup()
+    .setLatLng([lat, lng])
+    .setContent((address || 'Address not found') + `<br><br>Coordinates: ${lat}, ${lng}`)
+    .openOn(map);
       });
   
       return () => {
