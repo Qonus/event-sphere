@@ -90,7 +90,7 @@ const LeafletMap = ({
       id="map"
       style={{
         height: '400px',
-        width: '1100px',
+        width: '100%',
       }}
     />
   );

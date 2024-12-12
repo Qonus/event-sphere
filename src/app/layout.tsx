@@ -4,6 +4,7 @@ import "../../styles/globals.scss";
 import Navbar from "@/compnents/NavbarComponent/Navbar";
 import { auth } from '@/auth';
 import { dbConnect } from "@/lib/mongo";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +26,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const conn = await dbConnect();
   const session = await auth();
   return (
+    
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar session={session}></Navbar>
-        {children}
-      </body>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <Navbar session={session}></Navbar>
+          {children}
+        </body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const eventSchema = new Schema({
-  user_id: { required: true, type: mongoose.Schema.ObjectId, ref: 'User' },
+  user_id: { required: true, type: String,},
   image: { required: true, type: Buffer },
   start_time: { required: true, type: String },
   end_time: { required: true, type: String },
