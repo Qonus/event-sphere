@@ -67,6 +67,10 @@
   justify-content: center;
   align-items: center;
   gap: 0.7rem;
+
+  &_image {
+    border-radius: 50%;
+  }
 }
 
 @media screen and (max-width: $mobile-width) {

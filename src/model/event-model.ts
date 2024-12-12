@@ -1,6 +1,13 @@
-import mongoose, { Schema, models } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const eventSchema = new Schema({
+    user_id: { required: true, type: String },
+    image: { required: true, type: String },
+    start_time: { required: true, type: String },
+    end_time: { required: true, type: String },
+    title: { required: true, type: String },
+    description: { required: true, type: String },
+    tags: { required: true, type: String },
     coords: {
         required: true,
         type: {
@@ -14,18 +21,6 @@ const eventSchema = new Schema({
             }
         },
     },
-    password: {
-        required: true,
-        type: String,
-    },
-    email: {
-        required: true,
-        type: String,
-    },
-    image: {
-        required: true,
-        type: String,
-    },
 }, { timestamps: true });
 
-export const Event = models.Event || mongoose.model("Event", eventSchema);
+export const Event = mongoose.models.Event || mongoose.model("Event", eventSchema);

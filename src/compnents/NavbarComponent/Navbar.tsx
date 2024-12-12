@@ -39,15 +39,27 @@ const Navbar = ({ session }: any) => {
               menuOpen ? {display: "flex", opacity: "1", top: "80px"} : {}
             }
           >
-            <Link href="/events">События</Link>
+            <Link
+              className={styles.user}
+              href='/events'
+            >
+              <Image
+                className={styles.user_image}
+                src={"/event.svg"}
+                alt="Event Icon"
+                width={30}
+                height={30}
+              />
+              События
+            </Link>
 
             <Link
               className={styles.user}
               href={!session?.user ? '/login' : '/profile'}
             >
               <Image
-                className="sphere-event-logo"
-                src="/user-icon.png"
+                className={styles.user_image}
+                src={session?.user?.image || "/user.svg"}
                 alt="User Icon"
                 width={30}
                 height={30}
