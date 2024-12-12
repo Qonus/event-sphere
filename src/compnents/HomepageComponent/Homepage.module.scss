@@ -47,6 +47,15 @@
 
 @media screen and (max-width: $mobile-width) {
     .homepage {
-        
+        &__hero_section{
+    
+            &__header{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: small;
+            }
+        }
     }
 }
