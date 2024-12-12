@@ -1,0 +1,59 @@
+.event{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    
+    &_wrapper {
+        width: $wrapper-width;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title{
+        margin: 10px;
+    }
+
+    &__text{
+        margin: 30px;
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+        justify-content: start;
+        align-items: start;
+        &__description{
+            
+        }
+        
+        &__dates{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__img{
+        object-fit: cover;
+        border-radius: 20px;
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        margin: 10px;
+    }
+
+    &__tags{
+        display: flex;
+        justify-content: end;
+        align-self: end;
+
+        &__tag{
+            padding: 5px 10px;
+            background-color: rgb(108, 223, 156);
+            border-radius: 4px;
+            font-size: 14px;
+            color: $background-color;
+        }
+    }
+}
