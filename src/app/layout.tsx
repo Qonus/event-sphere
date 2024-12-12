@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../styles/globals.scss";
 import Navbar from "@/compnents/NavbarComponent/Navbar";
+import { auth } from '@/auth';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,18 +19,17 @@ export const metadata: Metadata = {
   description: "The best platform to keep up with your local events!"
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar></Navbar>
-        <main style={{ paddingTop: '120px' }}>
-            {children}
-          </main>
+        <Navbar session={session}></Navbar>
+        {children}
       </body>
     </html>
   );

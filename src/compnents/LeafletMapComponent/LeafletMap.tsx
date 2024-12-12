@@ -40,11 +40,11 @@ const LeafletMap = () => {
           L.marker([latitude, longitude]).addTo(map).bindPopup('Вы здесь!').openPopup();
         },
         (error) => {
-          console.error('Geolocation Error:', error);
+          alert('Не получилось получить вашу геолокацию.');
         }
       );
     } else {
-      console.error('Geolocation not supported by your browser.');
+      alert('Геолокация не поддерживается вашим браузером');
     }
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -63,6 +63,7 @@ const LeafletMap = () => {
   
       return () => {
         map.off('click');
+        map.remove();
       };
   }, []);
 
