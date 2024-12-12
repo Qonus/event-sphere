@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../../styles/globals.scss";
 import Navbar from "@/compnents/NavbarComponent/Navbar";
 import { auth } from '@/auth';
+import { dbConnect } from "@/lib/mongo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const conn = await dbConnect();
   const session = await auth();
   return (
     <html lang="en">

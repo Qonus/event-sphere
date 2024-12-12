@@ -19,5 +19,12 @@ export const {
                 }
             }
         })
-    ]
+    ],
+    callbacks: {
+        async signIn({user, account}: any) {
+            console.log(user);
+            console.log(account);
+            return user;
+        }
+    }
 });
