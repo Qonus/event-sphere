@@ -45,6 +45,20 @@ const Navbar = ({ session }: any) => {
             >
               <Image
                 className={styles.user_image}
+                src={"/create-event-icon.png"}
+                alt="Event Icon"
+                width={30}
+                height={30}
+              />
+              Создать событие
+            </Link>
+
+            <Link
+              className={styles.user}
+              href='/events'
+            >
+              <Image
+                className={styles.user_image}
                 src={"/event.svg"}
                 alt="Event Icon"
                 width={30}
