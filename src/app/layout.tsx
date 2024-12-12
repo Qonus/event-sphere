@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bicap Hackathon",
-  description: "Great platform for ...",
+  title: "Event Sphere",
+  description: "The best platform to keep up with your local events!"
 };
 
 export default function RootLayout({
