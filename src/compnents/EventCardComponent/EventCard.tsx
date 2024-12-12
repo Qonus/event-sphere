@@ -24,13 +24,11 @@ export default function EventCard({
       style={{ textDecoration: "none" }}
     >
       <div className={styles.event_card__image_wrapper}>
-        <div className={styles.event_card__image_wrapper__image}>
-          <Image 
+          <Image className={styles.event_card__image_wrapper__image}
           src={img}
           alt="event image"
-          width={500}
-          height={250}/>
-        </div>
+          width={700}
+          height={700}/>
       </div>
 
       <div className={styles.event_card__text}>

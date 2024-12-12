@@ -1,15 +1,21 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 
 const Navbar = ({ session }: any) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
