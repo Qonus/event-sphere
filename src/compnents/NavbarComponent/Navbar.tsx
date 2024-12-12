@@ -52,7 +52,7 @@ const Navbar = ({ session }: any) => {
                 width={30}
                 height={30}
               />
-              {!session?.user ? 'Log In' : 'Личный кабинет'}
+              {!session?.user ? 'Войти' : 'Личный кабинет'}
             </Link>
           </div>
 

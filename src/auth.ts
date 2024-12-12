@@ -1,5 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { dbConnect } from "./lib/mongo";
+import { User as UserModel } from "./model/user-model";
 
 export const {
     handlers: { GET, POST },
@@ -21,10 +23,35 @@ export const {
         })
     ],
     callbacks: {
-        async signIn({user, account}: any) {
-            console.log(user);
-            console.log(account);
-            return user;
-        }
-    }
+        async signIn({ user }: { user: User }) {
+            try {
+                await dbConnect();
+    
+                const existingUser = await UserModel.findOne({ email: user.email });
+
+                const {name, email, image} = user;
+    
+                if (!existingUser) {
+                    const res = await fetch("http://localhost:3000/api/users", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name, email, image
+                        }),
+                    });
+                }
+    
+                return true;
+            } catch (error) {
+                console.error("Error in signIn callback:", error);
+                return false; // Deny sign-in on error
+            }
+        },
+    },
+    
+    
+    
+    
 });
