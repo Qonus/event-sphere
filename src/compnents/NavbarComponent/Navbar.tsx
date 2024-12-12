@@ -2,11 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
 
 const Navbar = async () => {
   const session = await auth();
 
   return (
+    <>
     <nav className={styles.navbar}>
       <div className={styles.navbar__wrapper}>
         <div className={styles.navbar__head}>
@@ -14,11 +16,11 @@ const Navbar = async () => {
             className="sphere-event-logo"
             src="/logo.png"
             alt="logo"
-            width={90}
-            height={90}
+            width={50}
+            height={50}
           />
           <Link href="/" className={styles.logo}>
-            Event Sphere
+            EventSphere
           </Link>
         </div>
 
@@ -27,22 +29,16 @@ const Navbar = async () => {
             События
           </Link>
 
-            <div className={styles.user}>
-              <Image
-                className='sphere-event-logo'
-                src="/user-icon.png"
-                alt="User Icon"
-                width={30}
-                height={30}
-              />
-              {!session?.user ?
-              <Link href="/login">
-                Log In
-              </Link> :
-              <Link href="/profile">
-                Личный кабинет
-              </Link>}
-            </div>
+          <Link className={styles.user} href={!session?.user ? "/login" : "/profile"}>
+            <Image
+              className='sphere-event-logo'
+              src="/user-icon.png"
+              alt="User Icon"
+              width={30}
+              height={30}
+            />
+            {!session?.user ? "Log In" : "Личный кабинет"}
+          </Link>
         </div>
 
         <button className={styles.menuButton}>
@@ -50,6 +46,8 @@ const Navbar = async () => {
         </button>
       </div>
     </nav>
+    <div className={styles.fake_navbar}></div>
+    </>
   );
 };
 
