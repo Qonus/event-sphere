@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
+import {CSSTransition} from "react-transition-group";
 
 const Navbar = ({ session }: any) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = ({ session }: any) => {
 
           <div
             className={styles.navLinks} style={
-              menuOpen ? {display: "flex", opacity: "1", top: "80px"} : {}
+              menuOpen ? {top: "80px", transform:"translateY(0px)"} : {}
             }
           >
             <Link
