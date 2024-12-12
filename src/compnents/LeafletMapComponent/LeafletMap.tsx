@@ -7,21 +7,17 @@ import 'leaflet/dist/leaflet.css';
 
 const LeafletMap = () => {
   useEffect(() => {
-    // Initialize map
     const map = L.map('map').setView([51.505, -0.09], 13);
 
-    // Add tile layer (OpenStreetMap in this case)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Add a marker
     L.marker([51.505, -0.09])
       .addTo(map)
       .bindPopup('A pretty marker.<br> Easily customizable.')
       .openPopup();
 
-    // Clean up on unmount
     return () => {
       map.remove();
     };
@@ -31,8 +27,8 @@ const LeafletMap = () => {
     <div
       id="map"
       style={{
-        height: '500px',
-        width: '100%',
+        height: '400px',
+        width: '90%',
       }}
     />
   );
