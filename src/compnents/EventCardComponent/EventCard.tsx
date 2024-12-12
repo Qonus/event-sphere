@@ -7,7 +7,7 @@ export default function EventCard({
   title = "Placegolder TITLE",
   description = "placegoler DESC",
   likes = 0,
-  tags = ["Тэг Плейсхолдер", "Убрать тэги позже"],
+  tags = ["Тэг Плейсхолдер", "Убрать тэги позже","Тэг Плейсхолдер", "Убрать тэги позже"],
   img = "/icon.png"
 }: {
   href: string;
@@ -24,11 +24,13 @@ export default function EventCard({
       style={{ textDecoration: "none" }}
     >
       <div className={styles.event_card__image_wrapper}>
-          <Image className={styles.event_card__image_wrapper__image}
+        <div className={styles.event_card__image_wrapper__image}>
+          <Image 
           src={img}
           alt="event image"
-          width={700}
-          height={700}/>
+          width={500}
+          height={250}/>
+        </div>
       </div>
 
       <div className={styles.event_card__text}>

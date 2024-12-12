@@ -21,7 +21,7 @@ export default async function Homepage(){
                     <LeafletMap />
                 </div>
                 <div className={styles.homepage__top_events}>
-                    <EventCard href="/" ></EventCard>
+                    <EventCard href="/" tags={["Placeholder tag"]}></EventCard>
                     <EventCard href="/" ></EventCard>
                     <EventCard href="/" ></EventCard>
                     <EventCard href="/" ></EventCard>

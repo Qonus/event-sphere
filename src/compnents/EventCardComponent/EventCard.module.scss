@@ -1,9 +1,9 @@
 .event_card{
-    padding: 10px;
     width: 49%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 
     &__image_wrapper {
         display: flex;
