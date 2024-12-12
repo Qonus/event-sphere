@@ -45,7 +45,7 @@
     }
 }
 
-@media (max-width: $mobile-width) {
+@media screen and (max-width: $mobile-width) {
     .homepage {
         &__hero_section{
     
