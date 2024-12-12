@@ -27,6 +27,7 @@ const Navbar = () => {
       <div className={styles.navbar__wrapper}>
         <div className={styles.navbar__head}>
         <Image
+          className='sphere-event-logo'
           src="/logo.png"
           alt="logo"
           width={90}
