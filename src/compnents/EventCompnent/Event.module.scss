@@ -1,5 +1,4 @@
 .event{
-    margin: 20px;
     width: 100%;
     display: flex;
     
@@ -12,8 +11,39 @@
         justify-content: center;
     }
 
-    &__title{
-        margin: 10px;
+    &__hero_section{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+
+        &__author{
+            justify-self: start;
+            align-self: start;
+            display: flex;
+            align-items: center;
+            gap: 5%;
+            height: 2%;
+            font-size: large;
+            font-weight: 600;
+            color: $foreground-color-1;
+    
+    
+            &__profile{
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    
+        &__title{
+            display: flex;
+            margin-bottom: 10px;
+            justify-self: center;
+        }
     }
 
     &__text{
@@ -37,16 +67,19 @@
     &__img{
         object-fit: cover;
         border-radius: 20px;
-        width: 100%;
         height: auto;
         max-height: 400px;
         margin: 10px;
+        width: 10%;
     }
 
     &__tags{
+        margin-left: 30px;
+        margin-right: 30px;
         display: flex;
-        justify-content: end;
-        align-self: end;
+        align-self: start;
+        gap: 5px;
+        flex-wrap: wrap;
 
         &__tag{
             padding: 5px 10px;
