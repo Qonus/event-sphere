@@ -1,0 +1,13 @@
+.event_form_page {
+    width: 100%;
+
+    &_wrapper {
+        width: $wrapper-width;
+        margin: 0 auto;
+
+        h2 {
+            text-align: center;
+            margin: 20px;
+        }
+    }
+}

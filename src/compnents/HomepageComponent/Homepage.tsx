@@ -1,4 +1,4 @@
-import LeafletMap from "../LeafletMapComponent/LeafletMap"
+import { LeafletMap } from "../LeafletMapComponent/LeafletMap"
 import styles from "./Homepage.module.scss"
 import EventCard from "../EventCardComponent/EventCard"
 
