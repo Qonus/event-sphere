@@ -40,8 +40,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className={styles.navLinks}>
-          <Link href="/" style={{textDecoration:'none'}}>Главная</Link>
-          <Link href="/materials" style={{textDecoration:'none'}}>События</Link>
+          <Link href="/events" style={{textDecoration:'none'}}>События</Link>
+          <div>
+          <Image
+          className='sphere-event-logo'
+          src="/user-icon.png"
+          alt="logo"
+          width={45}
+          height={45}/>
+            <Link href="/login" style={{textDecoration:'none'}}>Войти</Link>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -55,7 +63,6 @@ const Navbar = () => {
       </div>
       {menuOpen && (
         <div className={styles.dropdownMenu}>
-          <Link href="/" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>Главная</Link>
           <Link href="/materials" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>События</Link>
         </div>
       )}

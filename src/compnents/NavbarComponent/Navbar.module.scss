@@ -39,13 +39,15 @@
   font-size: 2rem;
   font-weight: 800;
   text-decoration: none;
+  color: $foreground-color-1;
 }
 
 /* Ссылки на навбаре (desktop) */
 .navLinks {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
-  font-size: large;
+  font-size: medium;
   font-weight: 600;
   color: $foreground-color-1;
 }
