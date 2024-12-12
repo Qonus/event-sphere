@@ -38,10 +38,9 @@ export default function EventCard({
           {title}
         </div>
 
-        <details className={styles.event_card__text__description}>
-          <summary>увидеть больше</summary>
+        <div className={styles.event_card__text__description}> 
           {description}
-        </details>
+        </div>
       </div>
 
       <div

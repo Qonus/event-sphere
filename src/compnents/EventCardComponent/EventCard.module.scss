@@ -34,8 +34,13 @@
         &__description{
             font-weight: 600;
             justify-self: start;
+            align-self: start;
             color: $foreground-color-3;
             align-self: start;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
 
