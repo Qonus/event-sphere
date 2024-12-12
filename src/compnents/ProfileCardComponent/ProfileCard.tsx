@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from "./ProfileCard.module.scss"
+import Logout from "../LogoutComponent/Logout"
 
 export default function ProfileCard({name, email, image}: any) {
     return (
@@ -14,7 +15,7 @@ export default function ProfileCard({name, email, image}: any) {
                 height={72}
                 alt={name + " image"}
             />
-
+            <Logout />
         </div>
     )
 }

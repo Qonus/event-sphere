@@ -34,4 +34,17 @@
     font-weight: 900;
     color: $primary-color;
   }
+
+  h2, h3 {
+    color: white;
+  }
   
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: $primary-color;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+  }
