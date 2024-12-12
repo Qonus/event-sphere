@@ -29,3 +29,4 @@ bun dev
 - OpenStreetMap
 - OpenWeather
 - Mongodb
+- Imgur

@@ -20,7 +20,6 @@ const getAddressFromCoordinates = async (lat: number, lng: number) => {
     const response = await fetch(url);
     if (!response.ok) throw new Error('Failed to fetch address');
     const data = await response.json();
-    console.log('Address:', data.display_name);
     return data.display_name;
   } catch (error) {
     console.error('Error getting address:', error);
@@ -28,7 +27,19 @@ const getAddressFromCoordinates = async (lat: number, lng: number) => {
   }
 };
 
-const LeafletMap = () => {
+interface Marker {
+  lat: number;
+  lng: number;
+  popupText?: string;
+}
+
+const LeafletMap = ({
+  onLocationSelect,
+  markers,
+}: {
+  onLocationSelect?: (coords: { lat: number; lng: number; address: string; }) => void;
+  markers?: Marker[];
+}) => {
   useEffect(() => {
     let map = L.map('map').setView([51.08, 71.43], 13);
 
@@ -39,7 +50,7 @@ const LeafletMap = () => {
           map.setView([latitude, longitude], 13);
           L.marker([latitude, longitude]).addTo(map).bindPopup('Вы здесь!').openPopup();
         },
-        (error) => {
+        () => {
           alert('Не получилось получить вашу геолокацию.');
         }
       );
@@ -51,31 +62,38 @@ const LeafletMap = () => {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-      map.on('click', async (e: L.LeafletMouseEvent) => {
-        const { lat, lng } = e.latlng;
-        console.log(`Coordinates: ${lat}, ${lng}`);
-        const address = await getAddressFromCoordinates(lat, lng);
-        L.popup()
-    .setLatLng([lat, lng])
-    .setContent((address || 'Address not found') + `<br><br>Coordinates: ${lat}, ${lng}`)
-    .openOn(map);
-      });
-  
-      return () => {
-        map.off('click');
-        map.remove();
-      };
-  }, []);
+    markers?.forEach(({ lat, lng, popupText }) => {
+      L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(popupText || `Координаты: ${lat}, ${lng}`);
+    });
+
+    map.on('click', async (e: L.LeafletMouseEvent) => {
+      const { lat, lng } = e.latlng;
+      console.log(`Coordinates: ${lat}, ${lng}`);
+      const address = await getAddressFromCoordinates(lat, lng);
+      L.popup()
+        .setLatLng([lat, lng])
+        .setContent((address || 'Address not found') + `<br><br>Coordinates: ${lat}, ${lng}`)
+        .openOn(map);
+      if (onLocationSelect) onLocationSelect({ lat, lng, address });
+    });
+
+    return () => {
+      map.off('click');
+      map.remove();
+    };
+  }, [onLocationSelect, markers]);
 
   return (
     <div
       id="map"
       style={{
-        height: '500px',
+        height: '400px',
         width: '1100px',
       }}
     />
   );
 };
 
-export default LeafletMap;
+export {LeafletMap, getAddressFromCoordinates};

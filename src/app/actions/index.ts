@@ -11,3 +11,7 @@ export async function doSocialLogin(formData: any) {
 export async function doLogout () {
     await signOut({ redirectTo: "/"});
 }
+
+export async function addEvent(formData: any) {
+
+}
