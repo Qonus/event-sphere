@@ -14,12 +14,12 @@ export default async function Homepage(){
                     <div>
                         <p style={{fontSize:'17px'}}> Городская карта событий: находите концерты, выставки, фестивали и другие мероприятия поблизости. Удобный поиск, актуальные данные и лучшие идеи для вашего досуга </p>
                     </div>
-                    
                 </div>
                 
                 <div className={styles.homepage__map}>
                     <LeafletMap />
                 </div>
+
                 <div className={styles.homepage__top_events}>
                     <EventCard href="/" tags={["Placeholder tag"]}></EventCard>
                     <EventCard href="/" ></EventCard>

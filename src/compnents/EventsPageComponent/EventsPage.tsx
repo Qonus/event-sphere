@@ -14,11 +14,11 @@ export default function EventsPage({ query: initialQuery = ""}: EventsPageProps)
     const [articles, setArticles] = useState<Event[]>([]);
     const [query, setQuery] = useState(initialQuery || "");
     return(
-        <div className={styles.event_page}>
-            <div className={styles.event_page_wrapper}>
+        <div className={styles.events_page}>
+            <div className={styles.events_page_wrapper}>
                 <SearchBar onSearch={(newQuery) => setQuery(newQuery)}  header={"Поиск событий"} />
 
-                <div className={styles.event_page__top_events}>
+                <div className={styles.events_page__events}>
                     <EventCard href="/" tags={["Placeholder tag"]}></EventCard>
                     <EventCard href="/" ></EventCard>
                     <EventCard href="/" ></EventCard>

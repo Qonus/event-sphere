@@ -11,10 +11,12 @@
         justify-content: center;
     }
 
-    &__top_events{
+    &__events{
         width: 100%;
+        text-align: center;
         display: flex;
         gap: 10px;
+
         flex-wrap: wrap;
         justify-content: space-around;
     }
