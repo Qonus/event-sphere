@@ -3,11 +3,14 @@ import styles from "./Homepage.module.scss"
 
 export default async function Homepage(){
     return(
-        <main>
-            <p> This is homepage </p>
-            <h1>My Leaflet Map</h1>
-            <LeafletMap />
-        </main>
+        <div className={styles.homepage}>
+            <div className={styles.homepage_wrapper}>
+                <div className={styles.homepage__map}>
+                    <LeafletMap />
+                </div>
+            </div>
+        </div>
+        
     )
     
 }

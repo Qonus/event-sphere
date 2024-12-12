@@ -70,8 +70,8 @@ const LeafletMap = () => {
     <div
       id="map"
       style={{
-        height: '400px',
-        width: '800px',
+        height: '500px',
+        width: '1100px',
       }}
     />
   );

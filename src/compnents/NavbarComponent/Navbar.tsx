@@ -113,7 +113,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className={styles.dropdownMenu}>
           <Link
-            href="/materials"
+            href="/events/1"
             style={{ textDecoration: 'none' }}
             onClick={() => setMenuOpen(false)}
           >
