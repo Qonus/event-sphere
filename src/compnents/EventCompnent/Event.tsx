@@ -48,9 +48,9 @@ export default function Event({
                     className={styles.event__img}
                     src={image}
                     alt="article_image"
+                    layout="intrinsic"
                     width={800}
                     height={400}
-                    layout="responsive"
                 />
 
                 <div className={styles.event__text}>
