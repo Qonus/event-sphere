@@ -10,6 +10,7 @@ export default async function Profile(){
 
     return(
       <>
+      <div></div>
       <h1>Добропожаловать, {session?.user?.name}</h1>
       </>
     )
