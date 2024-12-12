@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbar__wrapper}>
         <div className={styles.navbar__head}>
-        <Image 
+        <Image
           src="/logo.png"
           alt="logo"
           width={90}
@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className={styles.navLinks}>
           <Link href="/" style={{textDecoration:'none'}}>Главная</Link>
-          <Link href="/materials" style={{textDecoration:'none'}}>Поиск</Link>
+          <Link href="/materials" style={{textDecoration:'none'}}>События</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -55,7 +55,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className={styles.dropdownMenu}>
           <Link href="/" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>Главная</Link>
-          <Link href="/materials" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>Поиск</Link>
+          <Link href="/materials" style={{textDecoration:'none'}} onClick={() => setMenuOpen(false)}>События</Link>
         </div>
       )}
     </nav>
