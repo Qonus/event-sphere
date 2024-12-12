@@ -32,7 +32,7 @@ const Navbar = () => {
           width={90}
           height={90}/>
         <Link href="/" className={styles.logo}>
-          City Flow
+          Event Sphere
         </Link>
         </div>
         
