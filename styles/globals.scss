@@ -28,7 +28,8 @@
   }
   
   a {
-    color: inherit;
+    color: $foreground-color-2;
+    font-weight: 600;
     text-decoration: none;
   }
 
@@ -41,11 +42,6 @@
     font-size: 60px;
     font-weight: 900;
     color: $foreground-color-2;
-  }
-
-  h2 {
-    font-size: 40px;
-    color: $primary-color;
   }
 
   h2, h3 {
