@@ -55,6 +55,7 @@ const Navbar = () => {
             onClick={toggleUserMenu}
           >
             <Image
+              className='sphere-event-logo'
               src="/user-icon.png"
               alt="User Icon"
               width={30}
