@@ -103,3 +103,15 @@
   height: 70px;
   width: 100%;
 }
+
+.userDropdown{
+  position: absolute;
+  margin-top: 10px;
+  margin-right: 0;
+  background-color: $background-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 10px;
+  min-width: 150px;
+}
