@@ -35,7 +35,7 @@
 
 .logo {
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 800;
   color: #fff;
   text-decoration: none;
 }
@@ -45,6 +45,8 @@
   display: flex;
   gap: 1.5rem;
   font-size: large;
+  font-weight: 600;
+  color: $foreground-color-1;
 }
 
 /* Кнопка меню для мобильных устройств */
@@ -54,6 +56,8 @@
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  color: $foreground-color-1;
+  font-weight: 800;
   cursor: pointer;
 }
 
@@ -64,6 +68,7 @@
   justify-content: end;
   gap: 1rem;
   margin-top: 1rem;
+  color: $foreground-color-1;
 }
 
 /* Медиа-запросы для мобильных */
