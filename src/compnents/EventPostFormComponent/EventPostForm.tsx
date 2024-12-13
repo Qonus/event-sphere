@@ -6,6 +6,7 @@ import {
 } from "../LeafletMapComponent/LeafletMap";
 import styles from "./EventPostForm.module.scss";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function EventPostForm({ user_id }: any) {
   const [title, setTitle] = useState("");
@@ -128,7 +129,9 @@ export default function EventPostForm({ user_id }: any) {
           required
         />
       </label>
-      <p> <a>Ваше изображение:</a> <img src={image} alt="" /></p>
+        <p> <a>Ваше изображение:</a> <Image src={image} width={100} height={100} alt="" onError={(e) => {
+      (e.target as HTMLImageElement).src = "icon.png";
+    }} /></p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>

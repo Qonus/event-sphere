@@ -72,10 +72,10 @@ const LeafletMap = ({
       const { lat, lng } = e.latlng;
       console.log(`Coordinates: ${lat}, ${lng}`);
       const address = await getAddressFromCoordinates(lat, lng);
-      L.popup()
-        .setLatLng([lat, lng])
-        .setContent((address || 'Address not found') + `<br><br>Coordinates: ${lat}, ${lng}`)
-        .openOn(map);
+      // L.popup()
+      //   .setLatLng([lat, lng])
+      //   .setContent((address || 'Address not found') + `<br><br>Coordinates: ${lat}, ${lng}`)
+      //   .openOn(map);
       if (onLocationSelect) onLocationSelect({ lat, lng, address });
     });
 

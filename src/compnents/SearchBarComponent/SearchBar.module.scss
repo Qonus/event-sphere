@@ -1,6 +1,7 @@
 .search_bar {
     height: 170px;
     width: 100%;
+    margin: 40px 0;
 
     &_wrapper {
         width: calc($wrapper-width * 0.8);

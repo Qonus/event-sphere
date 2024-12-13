@@ -1,16 +1,5 @@
 import EventsPage from "@/compnents/EventsPageComponent/EventsPage";
-
-async function fetchEvents() {
-    const response = await fetch("http://localhost:3000/api/events", {
-        method: "GET",
-    });
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch events");
-    }
-
-    return response.json();
-}
+import { fetchEvents } from "@/functions";
 
 export async function deleteEvent(eventId: string): Promise<void> {
     const response = await fetch(`http://localhost:3000/api/events?id=${eventId}`, {

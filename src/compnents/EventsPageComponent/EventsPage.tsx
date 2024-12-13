@@ -12,7 +12,9 @@ export default function EventsPage({ query: initialQuery = "", events_array = []
     useEffect(() => {
         if (query) {
             const filteredArticles = events.filter(event =>
-                event.title.toLowerCase().includes(query.toLowerCase())
+                event.title.toLowerCase().includes(query.toLowerCase()) ||
+                event.description.toLowerCase().includes(query.toLowerCase()) ||
+                event.tags.toLowerCase().includes(query.toLowerCase())
             );
             setArticles(filteredArticles);
         } else {
