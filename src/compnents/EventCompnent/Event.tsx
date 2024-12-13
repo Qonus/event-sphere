@@ -1,3 +1,4 @@
+import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import styles from "./Event.module.scss"
 import Image from "next/image";
 
@@ -9,7 +10,10 @@ export default function Event({
   description = "Содережание",
   tags = ["Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag",],
   author="Аноним",
-  author_profile="/user-icon.png"
+  author_profile="/user-icon.png",
+  lat=0,
+  lng=0,
+  address=""
 }: any) {
   return (
     <>
@@ -64,6 +68,10 @@ export default function Event({
                             {tag}
                         </span>
                     ))}
+                </div>
+                
+                <div className={styles.event__location}>
+                    <LeafletMap markers={[{lat: lat, lng: lng, popupText: address}]}></LeafletMap>
                 </div>
             </div>
         </div>
