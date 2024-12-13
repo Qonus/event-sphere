@@ -57,7 +57,7 @@ export default function EventCard({
         </button>
       )}
       <div className={styles.event_card__data}>
-        <div className={styles.event_card__data__status}>Upcoming</div>
+        <div className={styles.event_card__data__status + " " + (new Date() < new Date(start_time) ? "primary" : (new Date() > new Date(end_time) ? "negative" : "gray"))}>{(new Date() < new Date(start_time) ? "Скоро" : (new Date() > new Date(end_time)) ? "Прошедший" : "Идет")}</div>
         <div className={styles.event_card__data__dates}>
           {start_time} - {end_time}
         </div>

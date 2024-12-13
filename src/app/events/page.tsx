@@ -2,7 +2,7 @@ import EventsPage from "@/compnents/EventsPageComponent/EventsPage";
 import { fetchEvents } from "@/functions";
 
 export async function deleteEvent(eventId: string): Promise<void> {
-    const response = await fetch(`http://localhost:3000/api/events?id=${eventId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/events?id=${eventId}`, {
         method: "DELETE",
     });
   

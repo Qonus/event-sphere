@@ -81,6 +81,16 @@
     padding: 5px;
   }
 
+  .negative {
+    color: $negative-color;
+  }
+  .gray {
+    color: white;
+  }
+  .primary {
+    color: $primary-color;
+  }
+
   @media screen and (max-width: $mobile-width) {
     h1{
       font-size: 40px;
