@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 import Image from "next/image";
 import styles from "./EventCard.module.scss";
@@ -12,7 +11,6 @@ async function deleteEvent(eventId: string): Promise<void> {
 
     if (response.ok) {
       console.log("Event deleted successfully.");
-      // Optionally, refresh the page or remove the deleted event from the UI
     } else {
       const result = await response.json();
       console.error("Failed to delete event:", result.error);
@@ -20,6 +18,17 @@ async function deleteEvent(eventId: string): Promise<void> {
   } catch (error) {
     console.error("Error while deleting event:", error);
   }
+}
+
+interface EventCardProps {
+  user_id: string;
+  title?: string;
+  description?: string;
+  tags?: string[];
+  img?: string;
+  start_time?: string;
+  end_time?: string;
+  my_event?: boolean;
 }
 
 export default function EventCard({
@@ -31,9 +40,9 @@ export default function EventCard({
   start_time = "00.00.0000",
   end_time = "00.00.0000",
   my_event = false,
-}: any) {
+}: EventCardProps) {
   const handleDelete = async (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent navigation when clicking the delete button
+    e.preventDefault();
     await deleteEvent(user_id);
   };
 
@@ -85,7 +94,7 @@ export default function EventCard({
           flexWrap: "wrap",
         }}
       >
-        {tags.map((tag: any, index: any) => (
+        {tags.map((tag, index) => (
           <span className={styles.event_card__tags} key={index}>
             {tag}
           </span>
