@@ -22,15 +22,15 @@ export default function Event({
             <div className={styles.event_wrapper}>
                 <div className={styles.event__hero_section}>
                     <div className={styles.event__hero_section__author}>
-                        От:{" "}
+                        <a> От:{" "} </a>
                         <Image
                             className={styles.event__hero_section__author__profile}
                             src={author_profile ?? "/default-profile.jpg"}
                             alt="pfp"
-                            height={35}
-                            width={35}
+                            height={20}
+                            width={20}
                         />
-                        {author ?? "Аноним"}
+                        <a> {author ?? "Аноним"} </a>
                     </div>
 
                     <div className={styles.event__hero_section__title}>
@@ -47,7 +47,7 @@ export default function Event({
                     height={400}
                 />
 
-                <div className={styles.event__text}>
+                <div className={styles.event__text + " glass"}>
                     <div className={styles.event__text__description}>
                         <p>{description}</p>
                     </div>
@@ -58,23 +58,24 @@ export default function Event({
                     <div className={styles.event__text__dates}>
                         <a>Время конца:</a> <p>{end_time}</p>
                     </div>
-                </div>
-                
-                <div className={styles.event__tags}>
+
+                    <div className={styles.event__text__tags}>
                     {tags.map((tag: any, index: any) => (
                         <span
-                            className={styles.event__tags__tag}
+                            className={styles.event__text__tags__tag}
                             key={index}
                             >
                             {tag}
                         </span>
                     ))}
                 </div>
+                </div>
+                
+                
                 
                 <div className={styles.event__location}>
                     <LeafletMap markers={[{lat: lat, lng: lng, popupText: address}]}></LeafletMap>
                 </div>
-
                 <Weather lat={lat} lng={lng} timestamp={start_time}/>
             </div>
         </div>
