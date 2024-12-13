@@ -26,8 +26,10 @@
     border-radius: 10px;
 
     &:hover {
-      box-shadow: 0 0px 10px rgba(139, 237, 126, 0.2);
-    }
+    box-shadow: 0px 0px 10px rgba(139, 237, 126, 0.2);
+    transform: translateY(3px);
+    transition: 0.3s ease-out;
+  }
   }
 }
 
@@ -49,7 +51,9 @@
   font-weight: 800;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0px 10px rgba(194, 234, 188, 0.724);
+    box-shadow: 0px 0px 10px rgba(139, 237, 126, 0.2);
+    transform: translateY(3px);
+    transition: 0.3s ease-out;
   }
 }
 

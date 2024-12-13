@@ -101,7 +101,8 @@
 
 
 @media screen and (max-width: $mobile-width) {
-    .material_card{
+    .event_card{
+        width: 100%;
         &__text{
             &__title{
                 font-size:medium;

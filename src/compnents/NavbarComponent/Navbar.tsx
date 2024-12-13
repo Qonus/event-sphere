@@ -15,8 +15,15 @@ const Navbar = ({ session }: any) => {
   };
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <>
