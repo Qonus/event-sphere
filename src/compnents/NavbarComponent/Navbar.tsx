@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import {CSSTransition} from "react-transition-group";
 
 const Navbar = ({ session }: any) => {
   const [menuOpen, setMenuOpen] = useState(false);

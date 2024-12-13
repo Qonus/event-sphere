@@ -1,4 +1,5 @@
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
+import Weather from "../WeatherComponent/Weather";
 import styles from "./Event.module.scss"
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ export default function Event({
                 
                 <Image 
                     className={styles.event__img}
-                    src={image}
+                    src={image || "/icon.png"}
                     alt="article_image"
                     layout="intrinsic"
                     width={800}
@@ -73,6 +74,8 @@ export default function Event({
                 <div className={styles.event__location}>
                     <LeafletMap markers={[{lat: lat, lng: lng, popupText: address}]}></LeafletMap>
                 </div>
+
+                <Weather lat={lat} lng={lng} timestamp={start_time}/>
             </div>
         </div>
     </>

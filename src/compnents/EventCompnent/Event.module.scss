@@ -2,6 +2,13 @@
     width: 100%;
     display: flex;
     
+    &__location {
+        border-radius: 20px;
+        overflow:hidden;
+        width: 90%;
+        margin: 30px;
+    }
+
     &_wrapper {
         width: $wrapper-width;
         margin: 0 auto;

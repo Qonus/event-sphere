@@ -12,20 +12,32 @@ export async function POST(request: any) {
 export async function GET(request: any) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
-
+    const query = searchParams.get("query");
+  
     await dbConnect();
-    
+  
     if (id) {
-        const event = await Event.findById(id);
-        if (!event) {
-            return NextResponse.json({ error: "Event not found" }, { status: 404 });
-        }
-        return NextResponse.json(event, { status: 200 });
+      const event = await Event.findById(id);
+      if (!event) {
+        return NextResponse.json({ error: "Event not found" }, { status: 404 });
+      }
+      return NextResponse.json(event, { status: 200 });
     }
-
-    const events = await Event.find({});
+  
+    const filter: Record<string, any> = {};
+    if (query) {
+      const regex = new RegExp(query, "i"); // Case-insensitive regex
+      filter.$or = [
+        { title: regex },
+        { description: regex },
+        { tags: regex },
+      ];
+    }
+  
+    const events = await Event.find(filter);
     return NextResponse.json(events, { status: 200 });
-}
+  }
+
 
 export async function DELETE(request: any) {
     const { searchParams } = new URL(request.url);
