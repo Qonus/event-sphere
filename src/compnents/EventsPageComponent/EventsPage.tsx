@@ -37,7 +37,6 @@ export default function EventsPage({ query: initialQuery = "", events_array = []
                             img={event.image}
                             end_time={event.end_time}
                             start_time={event.start_time}
-                            my_event={true}
                         >
                         </EventCard>
                     ))}

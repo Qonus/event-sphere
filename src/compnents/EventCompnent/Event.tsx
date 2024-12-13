@@ -24,11 +24,11 @@ export default function Event({
                     <div className={styles.event__hero_section__author}>
                         От:{" "}
                         <Image
-                            className={styles.mevent__hero_section__author__profile}
+                            className={styles.event__hero_section__author__profile}
                             src={author_profile ?? "/default-profile.jpg"}
                             alt="pfp"
-                            height={15}
-                            width={15}
+                            height={35}
+                            width={35}
                         />
                         {author ?? "Аноним"}
                     </div>

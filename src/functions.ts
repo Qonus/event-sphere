@@ -1,5 +1,5 @@
 
-export async function fetchEvents({ id, query }: { id?: string; query?: string } = {}) {
+export async function fetchEvents({ user_id, id, query, }: any = {}) {
     const url = new URL("http://localhost:3000/api/events");
 
     // Add query parameters if provided
@@ -8,6 +8,9 @@ export async function fetchEvents({ id, query }: { id?: string; query?: string }
     }
     if (query) {
         url.searchParams.append("query", query);
+    }
+    if (user_id) {
+        url.searchParams.append("user_id", user_id);
     }
 
     const response = await fetch(url.toString(), {

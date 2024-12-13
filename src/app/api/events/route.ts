@@ -13,6 +13,7 @@ export async function GET(request: any) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
     const query = searchParams.get("query");
+    const user_id = searchParams.get("user_id");
   
     await dbConnect();
   
@@ -33,8 +34,11 @@ export async function GET(request: any) {
         { tags: regex },
       ];
     }
-  
-    const events = await Event.find(filter);
+    let events = await Event.find(filter);
+    if (user_id) {
+        events = events.filter((event) => event.user_id === user_id);
+    }
+
     return NextResponse.json(events, { status: 200 });
   }
 
