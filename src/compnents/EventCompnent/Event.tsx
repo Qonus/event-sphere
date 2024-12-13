@@ -3,25 +3,14 @@ import Image from "next/image";
 
 export default function Event({
   title = "Заголовок",
-  start_date = "00.00.0000",
-  end_date="00.00.0000",
-  start_time="00:00",
+  start_time = "00.00.0000",
+  end_time="00.00.0000",
   image = "/icon.png",
   description = "Содережание",
-  tags = ["Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag",],
+  tags = ["Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag","Placeholder tag",],
   author="Аноним",
   author_profile="/user-icon.png"
-}: {
-  title: string;
-  start_date:string;
-  end_date:string;
-  start_time?:string;
-  image?:string;
-  description?: string;
-  tags?: string[];
-  author?: string;
-  author_profile?: string;
-}) {
+}: any) {
   return (
     <>
         <div className={styles.event}> 
@@ -57,18 +46,17 @@ export default function Event({
                     <div className={styles.event__text__description}>
                         <p>{description}</p>
                     </div>
-                    
-                    <div className={styles.event__text__dates}>
-                        <a>Даты проведения:</a> <p>{start_date}</p> <p>-</p> <p>{end_date}</p>
-                    </div>
 
                     <div className={styles.event__text__dates}>
                         <a>Время начала:</a> <p>{start_time}</p>
                     </div>
+                    <div className={styles.event__text__dates}>
+                        <a>Время конца:</a> <p>{end_time}</p>
+                    </div>
                 </div>
                 
                 <div className={styles.event__tags}>
-                    {tags.map((tag, index) => (
+                    {tags.map((tag: any, index: any) => (
                         <span
                             className={styles.event__tags__tag}
                             key={index}
