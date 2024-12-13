@@ -54,7 +54,7 @@ export default function EventPostForm({ user_id }: any) {
   return (
     <form className={styles.postform} onSubmit={handleSubmit}>
       <label>
-        Заголовок:
+        <a>Заголовок:</a>
         <input
           type="text"
           value={title}
@@ -63,7 +63,7 @@ export default function EventPostForm({ user_id }: any) {
         />
       </label>
       <label>
-        Описание:
+        <a>Описание:</a>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -71,7 +71,7 @@ export default function EventPostForm({ user_id }: any) {
         />
       </label>
       <label>
-        Начало мероприятия:
+        <a>Начало мероприятия:</a>
         <input
           type="datetime-local"
           value={startTime}
@@ -80,7 +80,7 @@ export default function EventPostForm({ user_id }: any) {
         />
       </label>
       <label>
-        Конец мероприятия:
+        <a> Конец мероприятия: </a>
         <input
           type="datetime-local"
           value={endTime}
@@ -89,7 +89,7 @@ export default function EventPostForm({ user_id }: any) {
         />
       </label>
       <label>
-        Место мероприятия:
+        <a>Место мероприятия:</a>
         <div className={styles.postform_map} onClick={(e) => e.stopPropagation()}>
           <LeafletMap
             onLocationSelect={(selectedCoords) => setCoords(selectedCoords)}
@@ -108,7 +108,7 @@ export default function EventPostForm({ user_id }: any) {
         </div>
       </label>
       <label>
-        Тэги (разделенные запятой):
+        <a> Тэги(разделенные пробелом):</a>
         <input
           type="text"
           value={tags}
@@ -118,7 +118,7 @@ export default function EventPostForm({ user_id }: any) {
         />
       </label>
       <label>
-        Ссылка изображения мероприятия:
+        <a> Ссылка изображения мероприятия: </a>
         <input
           type="text"
           accept="image/*"
@@ -128,7 +128,7 @@ export default function EventPostForm({ user_id }: any) {
           required
         />
       </label>
-      <p>Ваше изображение: <img src={image} alt="" /></p>
+      <p> <a>Ваше изображение:</a> <img src={image} alt="" /></p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>
