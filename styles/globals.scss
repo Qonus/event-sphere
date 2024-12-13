@@ -41,9 +41,13 @@
     align-self: center;
   }
 
-label, p {
+  label {
     font-weight: 600;
-    color: white;
+  }
+
+  p{
+    color: $foreground-color-3;
+    font-weight: 600;
   }
 
   h1 {
