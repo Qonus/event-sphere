@@ -2,13 +2,11 @@
 import { useState } from "react";
 import styles from "./EventsPage.module.scss"
 import SearchBar from "../SearchBarComponent/SearchBar"
-import Event from "../EventCompnent/Event";
 import EventCard from "../EventCardComponent/EventCard";
 
 interface EventsPageProps {
     query?: string ;
 }
-
 
 export default function EventsPage({ query: initialQuery = ""}: EventsPageProps) {
     const [articles, setArticles] = useState<Event[]>([]);
@@ -26,7 +24,6 @@ export default function EventsPage({ query: initialQuery = ""}: EventsPageProps)
                 </div>
             </div>
         </div>
-        
     )
     
 }

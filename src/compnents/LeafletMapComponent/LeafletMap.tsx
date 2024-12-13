@@ -51,11 +51,11 @@ const LeafletMap = ({
           L.marker([latitude, longitude]).addTo(map).bindPopup('Вы здесь!').openPopup();
         },
         () => {
-          alert('Не получилось получить вашу геолокацию.');
+          //alert('Не получилось получить вашу геолокацию.');
         }
       );
     } else {
-      alert('Геолокация не поддерживается вашим браузером');
+      //alert('Геолокация не поддерживается вашим браузером');
     }
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
