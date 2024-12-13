@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.x"
+  },
   "name": "bicap-hackathon",
   "version": "0.1.0",
   "private": true,
@@ -28,6 +31,6 @@
     "@types/react-transition-group": "^4.4.12",
     "eslint": "^9",
     "eslint-config-next": "15.1.0",
-    "typescript": "^5"
+    "typescript": "^5.7.2"
   }
 }

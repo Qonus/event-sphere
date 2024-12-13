@@ -16,6 +16,10 @@
         overflow:hidden;
         width: 90%;
         margin: 30px;
+
+        &:hover {
+            box-shadow: 0 0px 20px rgba(34, 255, 0, 0.3);
+          }
     } 
 
     &__hero_section{
