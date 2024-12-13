@@ -1,2 +1,6 @@
 .login_form {
+    &:hover{
+        box-shadow: 0 0 10px rgba(108, 223, 156, 0.3);
+        cursor: pointer;
+    }
 }
