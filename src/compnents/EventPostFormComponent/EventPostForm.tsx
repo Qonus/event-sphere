@@ -25,6 +25,13 @@ export default function EventPostForm({ user_id }: any) {
 //     }
 //   };
 
+const [imageUrl, setImageUrl] = useState('');
+
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value.trim(); // Trim whitespace
+  setImageUrl(value);
+};
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
@@ -124,14 +131,12 @@ export default function EventPostForm({ user_id }: any) {
           type="text"
           accept="image/*"
           onChange={(e) =>
-            setImage(e.target.value)
+            handleInputChange(e)
           }
           required
         />
       </label>
-        <p> <a>Ваше изображение:</a> <Image src={image} width={100} height={100} alt="" onError={(e) => {
-      (e.target as HTMLImageElement).src = "icon.png";
-    }} /></p>
+        <p> <a>Ваше изображение:</a> <Image src={image} width={100} height={100} alt=""/></p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>

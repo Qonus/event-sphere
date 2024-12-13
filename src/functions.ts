@@ -1,6 +1,6 @@
 
 export async function fetchEvents({ user_id, id, query, }: any = {}) {
-    const url = new URL("http://localhost:3000/api/events");
+    const url = new URL(`${process.env.NEXT_PUBLIC_URL}/api/events`);
 
     // Add query parameters if provided
     if (id) {
