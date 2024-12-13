@@ -16,7 +16,6 @@ export default function EventPostForm({ user_id }: any) {
   const [endTime, setEndTime] = useState("");
   const [coords, setCoords] = useState({ lng: 0, lat: 0, address: "" });
   //const [image, setImage] = useState<File | null>(null);
-  const [image, setImage] = useState("");
 
   // Handle file selection
 //   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,16 +27,12 @@ export default function EventPostForm({ user_id }: any) {
 const [imageUrl, setImageUrl] = useState('');
 
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const value = e.target.value.trim(); // Trim whitespace
+  const value = e.target.value.trim();
   setImageUrl(value);
 };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
-    if (!image) {
-      return alert("Загрузите картинку мероприятия.");
-    }
   
     try {
       const res = await fetch(`http://localhost:3000/api/events/`, {
@@ -136,7 +131,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           required
         />
       </label>
-        <p> <a>Ваше изображение:</a> <Image src={image} width={100} height={100} alt=""/></p>
+        <p> <a>Ваше изображение:</a> <Image src={imageUrl} width={100} height={100} alt=""/></p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>

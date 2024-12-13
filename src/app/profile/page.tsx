@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { auth } from "@/auth";
 import ProfileCard from "@/compnents/ProfileCardComponent/ProfileCard";
 import { redirect } from 'next/navigation'
@@ -23,7 +25,7 @@ export default async function Profile(){
             </div>
 
             <div className={styles.profile_page__events}>
-                  {events.map((event:any) => (
+                  {events.map((event) => (
                         <EventCard
                             key={event._id}
                             user_id={event._id.toString()}

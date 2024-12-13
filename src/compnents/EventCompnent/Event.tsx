@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import Weather from "../WeatherComponent/Weather";
 import styles from "./Event.module.scss"

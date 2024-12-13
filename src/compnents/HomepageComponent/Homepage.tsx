@@ -1,6 +1,5 @@
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import styles from "./Homepage.module.scss";
-import EventCard from "../EventCardComponent/EventCard";
 import { fetchEvents } from "@/functions";
 
 export default async function Homepage() {
