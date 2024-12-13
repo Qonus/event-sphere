@@ -29,11 +29,14 @@ export const {
                 const existingUser = await UserModel.findOne({ email: user.email });
                 const {name, email, image} = user;
                 if (!existingUser) {
-                    // Create a new user if they don't exist
-                    const newUser = await UserModel.create({
-                        name,
-                        email,
-                        image
+                    await fetch(process.env.URL + "/api/users", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name, email, image
+                        }),
                     });
                 }
                 return true;

@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import {
   LeafletMap
 } from "../LeafletMapComponent/LeafletMap";
@@ -9,18 +10,19 @@ import { useState } from "react";
 export default function EventPostForm({ user_id }: any) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [coords, setCoords] = useState({ lng: 0, lat: 0, address: "" });
-  const [image, setImage] = useState<File | null>(null);
+  //const [image, setImage] = useState<File | null>(null);
+  const [image, setImage] = useState("");
 
   // Handle file selection
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
+//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     if (e.target.files && e.target.files[0]) {
+//       setImage(e.target.files[0]);
+//     }
+//   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,22 +32,18 @@ export default function EventPostForm({ user_id }: any) {
     }
   
     try {
-      const formData = new FormData();
-      formData.append("user_id", user_id);
-      formData.append("title", title);
-      formData.append("description", description);
-      formData.append("start_time", startTime);
-      formData.append("end_time", endTime);
-      formData.append("coords", JSON.stringify(coords));
-      formData.append("tags", JSON.stringify(tags));
-      formData.append("image", image);
-      const res = await fetch(`${process.env.URL}/api/events`, {
+      const res = await fetch(`http://localhost:3000/api/events/`, {
         method: "POST",
-        body: formData,
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify({user_id: user_id, title: title, description: description, start_time: startTime, end_time: endTime, tags: tags, image: image, lat: coords.lat, lng: coords.lng}),
       });
   
       console.log(res);
-      const data = await res.json();
+      if (res.ok) {
+        redirect("/profile");
+      }
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -112,21 +110,24 @@ export default function EventPostForm({ user_id }: any) {
         Тэги (разделенные запятой):
         <input
           type="text"
-          value={tags.join(", ")}
+          value={tags}
           onChange={(e) =>
-            setTags(e.target.value.split(",").map((tag) => tag.trim()))
+            setTags(e.target.value)
           }
         />
       </label>
       <label>
-        Изображение мероприятия:
+        Ссылка изображения мероприятия:
         <input
-          type="file"
+          type="text"
           accept="image/*"
-          onChange={handleFileChange}
+          onChange={(e) =>
+            setImage(e.target.value)
+          }
           required
         />
       </label>
+      <p>Ваше изображение: <img src={image} alt="" /></p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>

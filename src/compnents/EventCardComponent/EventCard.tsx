@@ -6,7 +6,6 @@ export default function EventCard({
   href="/",
   title = "Placegolder TITLE",
   description = "placegoler DESC",
-  likes = 0,
   tags = ["Тэг Плейсхолдер", "Убрать тэги позже","Тэг Плейсхолдер", "Убрать тэги позже"],
   img = "/icon.png",
   start_date = "00.00.0000",
@@ -15,7 +14,6 @@ export default function EventCard({
   href?: string;
   title?: string;
   description?: string;
-  likes?: number;
   tags?: string[];
   img?: string;
   start_date?:string;
