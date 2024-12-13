@@ -14,7 +14,7 @@ export default async function EventFormPage() {
     <>
     <div className={styles.event_form_page}>
         <div className={styles.event_form_page_wrapper}>
-            <h2>Ваше мероприятие:</h2>
+            <h1>Ваше мероприятие:</h1>
             <EventPostForm user_id={session?.user?.id}/>
         </div>
     </div>

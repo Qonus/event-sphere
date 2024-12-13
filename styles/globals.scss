@@ -38,7 +38,6 @@
     color: $primary-color;
     font-weight: 600;
     text-decoration: none;
-    align-self: center;
   }
 
   label {
@@ -65,9 +64,9 @@
     border: none;
     border-radius: 10px;
     background-color: $primary-color;
-    color: white;
+    color: $background-color;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 900;
   }
 
   .hr {
