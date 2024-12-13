@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../../styles/globals.scss";
 import Navbar from "@/compnents/NavbarComponent/Navbar";
 import { auth } from '@/auth';
+import { Session } from "next-auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,14 +25,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  const session = await auth();  // Get session data
   return (
-    
     <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <Navbar session={session}></Navbar>
-          {children}
-        </body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Navbar session={session} />  {/* Pass session as a prop */}
+        {children}
+      </body>
     </html>
   );
 }

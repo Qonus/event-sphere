@@ -1,15 +1,16 @@
 import { dbConnect } from "@/lib/mongo";
 import { Event } from "@/model/event-model";
+import { IEvent } from "@/objects";
 import { NextResponse } from "next/server";
 
-export async function POST(request: any) {
-    const { user_id, title, description, start_time, end_time, image, tags, lat, lng } = await request.json();
+export async function POST(request: Request) {
+    const { user_id, title, description, start_time, end_time, image, tags, lat, lng }: IEvent = await request.json();
     await dbConnect();
     const res = await Event.create({ user_id, title, description, start_time, end_time, image, tags, lat, lng });
     return NextResponse.json(res, { status: 201 });
 }
 
-export async function GET(request: any) {
+export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
     const query = searchParams.get("query");
@@ -18,21 +19,21 @@ export async function GET(request: any) {
     await dbConnect();
   
     if (id) {
-      const event = await Event.findById(id);
-      if (!event) {
-        return NextResponse.json({ error: "Event not found" }, { status: 404 });
-      }
-      return NextResponse.json(event, { status: 200 });
+        const event = await Event.findById(id);
+        if (!event) {
+            return NextResponse.json({ error: "Event not found" }, { status: 404 });
+        }
+        return NextResponse.json(event, { status: 200 });
     }
   
     const filter: Record<string, any> = {};
     if (query) {
-      const regex = new RegExp(query, "i"); // Case-insensitive regex
-      filter.$or = [
-        { title: regex },
-        { description: regex },
-        { tags: regex },
-      ];
+        const regex = new RegExp(query, "i"); // Case-insensitive regex
+        filter.$or = [
+            { title: regex },
+            { description: regex },
+            { tags: regex },
+        ];
     }
     let events = await Event.find(filter);
     if (user_id) {
@@ -40,10 +41,9 @@ export async function GET(request: any) {
     }
 
     return NextResponse.json(events, { status: 200 });
-  }
+}
 
-
-export async function DELETE(request: any) {
+export async function DELETE(request: Request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 

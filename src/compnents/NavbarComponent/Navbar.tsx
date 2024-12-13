@@ -1,13 +1,17 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
+import { Session } from 'next-auth';
 
-const Navbar = ({ session }: any) => {
+// Define the expected prop types
+interface NavbarProps {
+  session: Session | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ session }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -42,7 +46,8 @@ const Navbar = ({ session }: any) => {
           </div>
 
           <div
-            className={styles.navLinks} style={
+            className={styles.navLinks} 
+            style={
               menuOpen ? {top: "80px", transform:"translateY(0px)"} : {transition:"0.75 ease-in"}
             }
           >

@@ -41,7 +41,7 @@ const LeafletMap = ({
   markers?: Marker[];
 }) => {
   useEffect(() => {
-    let map = L.map('map').setView([51.08, 71.43], 13);
+    const map = L.map('map').setView([51.08, 71.43], 13);
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(

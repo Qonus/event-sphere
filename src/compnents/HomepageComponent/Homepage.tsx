@@ -1,3 +1,4 @@
+import { IEvent } from "@/objects";
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import styles from "./Homepage.module.scss";
 import { fetchEvents } from "@/functions";
@@ -7,7 +8,7 @@ export default async function Homepage() {
         const events = await fetchEvents(); // Fetch events data
 
         // Map events to markers
-        const markers = events.map((event: any) => ({
+        const markers = events.map((event: IEvent) => ({
             lat: event.lat,
             lng: event.lng,
             popupText: event.title, // Title as the popup text

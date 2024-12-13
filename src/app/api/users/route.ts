@@ -2,7 +2,7 @@ import { dbConnect } from "@/lib/mongo";
 import { User } from "@/model/user-model";
 import { NextResponse } from "next/server";
 
-export async function POST (request: any) {
+export async function POST (request: Request) {
     const {name, email, image} = await request.json();
     await dbConnect();
     const res = await User.create({name, email, image});

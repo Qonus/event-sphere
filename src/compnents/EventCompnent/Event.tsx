@@ -1,4 +1,3 @@
-// @ts-nocheck
 import CustomImage from "../CustomImage";
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import Weather from "../WeatherComponent/Weather";
@@ -57,7 +56,6 @@ export default function Event({
             src={image}
             defaultSrc="/icon.png"
             alt="article_image"
-            layout="intrinsic"
             width={800}
             height={400}
           />
