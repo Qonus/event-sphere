@@ -80,7 +80,7 @@ export default function Event({
           <div className={styles.event__location}>
             <LeafletMap markers={[{ lat: lat, lng: lng, popupText: address }]}></LeafletMap>
           </div>
-          <Weather lat={lat} lng={lng} timestamp={start_time} />
+          <Weather lat={lat} lng={lng} timestamp={new Date(start_time).getTime()} />
         </div>
       </div>
     </>

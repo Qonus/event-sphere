@@ -3,24 +3,15 @@ import { useState, useEffect } from "react";
 import styles from "./EventsPage.module.scss";
 import SearchBar from "../SearchBarComponent/SearchBar";
 import EventCard from "../EventCardComponent/EventCard";
-
-interface Event {
-  _id: string;
-  title: string;
-  description: string;
-  tags: string;
-  image: string;
-  start_time: string;
-  end_time: string;
-}
+import { IEvent } from "@/objects";
 
 interface EventsPageProps {
   query?: string;
-  events_array?: Event[];
+  events_array?: IEvent[];
 }
 
 export default function EventsPage({ query: initialQuery = "", events_array = [] }: EventsPageProps) {
-  const [events, setEvents] = useState<Event[]>(events_array);
+  const [events, setEvents] = useState<IEvent[]>(events_array);
   const [query, setQuery] = useState(initialQuery);
 
   useEffect(() => {
