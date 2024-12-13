@@ -17,6 +17,10 @@ export default async function Profile(){
           <div className={styles.profile_page_wrapper}>
             <ProfileCard name={session?.user?.name} email={session?.user?.email} image={session?.user?.image}/>
 
+            <div className={styles.profile_page__users_events_text}>
+                <h1>  Ваши События</h1>
+            </div>
+
             <div className={styles.profile_page__events}>
                 <EventCard></EventCard>
                 <EventCard></EventCard>
