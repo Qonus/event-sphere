@@ -7,10 +7,10 @@ export default async function EventPage({ params }: { params: { id: string } }) 
     await dbConnect();
 
     const event = await EventModel.findById(id);
-
+    
     if (!event) {
-        return <p>Event not found.</p>;
-    }
+      return <p>Event not found.</p>;
+      }
   return(
     <Event 
       title={event.title}
@@ -19,6 +19,8 @@ export default async function EventPage({ params }: { params: { id: string } }) 
       image={event.image}
       description={event.description}
       tags={event.tags.split(" ")}
+      lat={event.lat}
+      lng={event.lng}
     />
   );
 }
