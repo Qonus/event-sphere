@@ -37,7 +37,7 @@ const Navbar = ({ session }: any) => {
 
           <div
             className={styles.navLinks} style={
-              menuOpen ? {top: "80px", transform:"translateY(0px)"} : {}
+              menuOpen ? {top: "80px", transform:"translateY(0px)"} : {transition:"0.75 ease-in"}
             }
           >
             <Link
