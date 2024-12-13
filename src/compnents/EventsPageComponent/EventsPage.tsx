@@ -33,11 +33,10 @@ export default function EventsPage({ query: initialQuery = "", events_array = []
                             title={event.title}
                             description={event.description}
                             img={event.image}
-                            end_date={event.end_date}
-                            start_date={event.start_date}
+                            end_time={event.end_time}
+                            start_time={event.start_time}
                             my_event={true}
                         >
-                            {event.title}
                         </EventCard>
                     ))}
                 </div>

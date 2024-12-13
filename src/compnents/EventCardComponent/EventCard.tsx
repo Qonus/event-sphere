@@ -27,8 +27,8 @@ export default function EventCard({
   description = "Placeholder DESC",
   tags = ["Tag Placeholder", "Remove tags later"],
   img = "/icon.png",
-  start_date = "00.00.0000",
-  end_date = "00.00.0000",
+  start_time = "00.00.0000",
+  end_time = "00.00.0000",
   my_event = false,
 }: any) {
   const handleDelete = async (e: React.MouseEvent) => {
@@ -59,7 +59,7 @@ export default function EventCard({
       <div className={styles.event_card__data}>
         <div className={styles.event_card__data__status}>Upcoming</div>
         <div className={styles.event_card__data__dates}>
-          {start_date} - {end_date}
+          {start_time} - {end_time}
         </div>
       </div>
       <div className={styles.event_card__image_wrapper}>

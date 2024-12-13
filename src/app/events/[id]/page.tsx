@@ -13,10 +13,12 @@ export default async function EventPage({ params }: { params: { id: string } }) 
     }
   return(
     <Event 
-          title={event.title}
-          start_date={event.start_date}
-          end_date={event.end_date}
-          image={event.image}
-          description={event.description} />
+      title={event.title}
+      start_time={event.start_time}
+      end_time={event.end_time}
+      image={event.image}
+      description={event.description}
+      tags={event.tags.split(" ")}
+    />
   );
 }
