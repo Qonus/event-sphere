@@ -42,6 +42,7 @@ export default function EventPostForm({ user_id }: any) {
   
       console.log(res);
       if (res.ok) {
+        alert("Мероприятие опубликовано!");
         redirect("/profile");
       }
     } catch (error) {

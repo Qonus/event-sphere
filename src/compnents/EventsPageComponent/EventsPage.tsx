@@ -1,29 +1,47 @@
 "use client"
-import { useState } from "react";
-import styles from "./EventsPage.module.scss"
-import SearchBar from "../SearchBarComponent/SearchBar"
+import { useState, useEffect } from "react";
+import styles from "./EventsPage.module.scss";
+import SearchBar from "../SearchBarComponent/SearchBar";
 import EventCard from "../EventCardComponent/EventCard";
 
-interface EventsPageProps {
-    query?: string ;
-}
 
-export default function EventsPage({ query: initialQuery = ""}: EventsPageProps) {
-    const [articles, setArticles] = useState<Event[]>([]);
-    const [query, setQuery] = useState(initialQuery || "");
-    return(
+export default function EventsPage({ query: initialQuery = "", events_array = [] }: any) {
+    const [events, setArticles] = useState<any[]>(events_array);
+    const [query, setQuery] = useState(initialQuery);
+    console.log(events_array);
+    useEffect(() => {
+        if (query) {
+            const filteredArticles = events.filter(event =>
+                event.title.toLowerCase().includes(query.toLowerCase())
+            );
+            setArticles(filteredArticles);
+        } else {
+            setArticles(events);
+        }
+    }, [query, events]);
+
+    return (
         <div className={styles.events_page}>
             <div className={styles.events_page_wrapper}>
-                <SearchBar onSearch={(newQuery) => setQuery(newQuery)}  header={"Поиск событий"} />
-
+                <SearchBar onSearch={(newQuery) => setQuery(newQuery)} header={"Поиск"} />
                 <div className={styles.events_page__events}>
-                    <EventCard href="/" tags={["Placeholder tag"]}></EventCard>
-                    <EventCard href="/" ></EventCard>
-                    <EventCard href="/" ></EventCard>
-                    <EventCard href="/" ></EventCard>
+                    {events.map((event) => (
+                        <EventCard
+                            key={event._id}
+                            user_id={event._id.toString()}
+                            tags={event.tags.split(" ")}
+                            title={event.title}
+                            description={event.description}
+                            img={event.image}
+                            end_date={event.end_date}
+                            start_date={event.start_date}
+                            my_event={true}
+                        >
+                            {event.title}
+                        </EventCard>
+                    ))}
                 </div>
             </div>
         </div>
-    )
-    
+    );
 }

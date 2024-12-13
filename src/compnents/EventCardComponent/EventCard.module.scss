@@ -6,6 +6,18 @@
     height: fit-content;
     min-height: 500px;
 
+    &__delete {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        background-color: transparent;
+        cursor: pointer;
+        z-index: 2;
+        &__icon {
+
+        }
+    }
+
     &__data{
         margin-left: 14px;
         margin-top: 10px;
