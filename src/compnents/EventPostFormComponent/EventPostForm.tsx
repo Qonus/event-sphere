@@ -129,9 +129,6 @@ export default function EventPostForm({ user_id }: EventPostFormProps) {
           required
         />
       </label>
-      <p>
-        <a>Ваше изображение:</a> <Image src={imageUrl} width={100} height={100} alt="" />
-      </p>
       <button className="primary-button" type="submit">
         Опубликовать Мероприятие
       </button>

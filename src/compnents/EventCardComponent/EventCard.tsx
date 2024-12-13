@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./EventCard.module.scss";
 import Link from "next/link";
+import CustomImage from "../CustomImage";
 
 async function deleteEvent(eventId: string): Promise<void> {
   try {
@@ -73,9 +74,10 @@ export default function EventCard({
         </div>
       </div>
       <div className={styles.event_card__image_wrapper}>
-        <Image
+        <CustomImage
           className={styles.event_card__image_wrapper__image}
           src={img}
+          defaultSrc="/icon.png"
           alt="event image"
           width={500}
           height={250}

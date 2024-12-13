@@ -1,4 +1,5 @@
 // @ts-nocheck
+import CustomImage from "../CustomImage";
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import Weather from "../WeatherComponent/Weather";
 import styles from "./Event.module.scss";
@@ -51,9 +52,10 @@ export default function Event({
               <h1>{title}</h1>
             </div>
           </div>
-          <Image
+          <CustomImage
             className={styles.event__img}
-            src={image || "/icon.png"}
+            src={image}
+            defaultSrc="/icon.png"
             alt="article_image"
             layout="intrinsic"
             width={800}

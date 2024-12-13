@@ -1,11 +1,10 @@
-// @ts-nocheck
-
 import { auth } from "@/auth";
 import ProfileCard from "@/compnents/ProfileCardComponent/ProfileCard";
 import { redirect } from 'next/navigation'
 import styles from "./page.module.scss"
 import EventCard from "@/compnents/EventCardComponent/EventCard";
 import { fetchEvents } from "@/functions";
+import { IEvent } from "@/objects";
 
 export default async function Profile(){
     const session = await auth();
@@ -25,7 +24,7 @@ export default async function Profile(){
             </div>
 
             <div className={styles.profile_page__events}>
-                  {events.map((event) => (
+                  {events.map((event: IEvent) => (
                         <EventCard
                             key={event._id}
                             user_id={event._id.toString()}

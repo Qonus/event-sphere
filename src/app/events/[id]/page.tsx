@@ -18,7 +18,7 @@ const getAddressFromCoordinates = async (lat: number, lng: number) => {
 };
 
 export default async function EventPage({ params }: { params: { id: string } }) {
-    const { id } = params;
+    const { id } = await params;
     await dbConnect();
 
     const event = await EventModel.findById(id);
