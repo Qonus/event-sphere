@@ -1,31 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Description
+This is a [Next.js](https://nextjs.org) project made in 24 hours as a submition for [BICAP hackathon](https://capedu.kz/bicap) in Binom school, Astana, Kazakhstan.
 
-First, install npm running following command in your terminal:
-```bash
+## Setup
+- install  all required libraries by running
+```
 npm install
 ```
-and then install all required libraries by running
-```bash
-npm i
+
+Then, create a ```.env``` file in the main directory, it should include following fields filled with your data:
+
 ```
-
-Then, create a .env file in the project folder, and fill with following:
-
-MONGODB_URI = "*your mongo uri*"
+MONGODB_URI = "YOUR_MONGO_URI"
 (watch this guide: **https://youtu.be/VlJ2v6CcWMM?si=RdlKdwZ_yaskvzUq** if you do not know how to get mongo uri)
 
-NEXTAUTH_SECRET= "*you next auth secret*"
+NEXTAUTH_SECRET= "YOUR_AUTH_SECRET"
 (to generate next auth secret, past "npx auth secret" in whichever terminal you are using)
 NEXTAUTH_URL= "http://localhost:3000/"
 
-GOOGLE_CLIENT_ID= "*your client id*"
-GOOGLE_CLIENT_SECRET= "*your client secret*"
+GOOGLE_CLIENT_ID= "YOUR_GOOGLE_CLIENT_ID"
+GOOGLE_CLIENT_SECRET= "YOUR_GOOGLE_CLIENT_SECRET"
 (follow this article: **https://www.balbooa.com/help/gridbox-documentation/integrations/other/google-client-id** if you
 do not know how to create google client id and google client secret. Use "http://localhost:3000/")
+```
 
 Then, run the development server:
 
-```bash
+```
 npm run dev
 # or
 yarn dev
