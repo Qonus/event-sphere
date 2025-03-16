@@ -1,6 +1,17 @@
 ## Description
 This is a [Next.js](https://nextjs.org) + [MongoDB](https://www.mongodb.com/products/platform/atlas-database) project made in 24 hours as a submition for offline [BICAP hackathon](https://capedu.kz/bicap) in Binom school, Astana, Kazakhstan. 
 
+## Features:
+- Search algorithm.
+- Creating and seeing events on a map. 
+
+## Used Libraries:
+- Leaflet
+- OpenStreetMap
+- Imgur
+- Mongoose
+- Next-Auth
+
 ## Setup .env
 Create a ```.env``` file in the main directory, it should include following fields filled with your data:
 
@@ -41,10 +52,3 @@ bun dev
 ```
 
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Used Libraries:
-- MongoDB
-- Next-Auth
-- Leaflet
-- OpenStreetMap
-- Imgur
