@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+/* import { NextResponse } from 'next/server';
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
@@ -41,3 +41,4 @@ export async function GET(request: Request) {
   } catch {
   }
 }
+ */

@@ -1,10 +1,9 @@
 "use client";
 
 import { redirect } from "next/navigation";
+import { useState } from "react";
 import { LeafletMap } from "../LeafletMapComponent/LeafletMap";
 import styles from "./EventPostForm.module.scss";
-import { useState } from "react";
-import Image from "next/image";
 
 interface EventPostFormProps {
   user_id: string | number;

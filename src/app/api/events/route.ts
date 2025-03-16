@@ -1,6 +1,7 @@
 import { dbConnect } from "@/lib/mongo";
 import { Event } from "@/model/event-model";
 import { IEvent } from "@/objects";
+import { FilterQuery } from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
         return NextResponse.json(event, { status: 200 });
     }
   
-    const filter: Record<string, any> = {};
+    const filter: FilterQuery<IEvent> = {};
     if (query) {
         const regex = new RegExp(query, "i"); // Case-insensitive regex
         filter.$or = [

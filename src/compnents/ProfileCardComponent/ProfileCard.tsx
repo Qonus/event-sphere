@@ -1,8 +1,8 @@
 import Image from "next/image"
-import styles from "./ProfileCard.module.scss"
 import Logout from "../LogoutComponent/Logout"
+import styles from "./ProfileCard.module.scss"
 
-export default function ProfileCard({name, email, image}: any) {
+export default function ProfileCard({name, email, image}: {name: string, email: string, image: string}) {
     return (
         <div className={styles.profile_card + " glass"}>
             <div className={styles.profile_card__info}>

@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
 import L from 'leaflet';
+import { useEffect } from 'react';
 
 import 'leaflet/dist/leaflet.css';
 
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete (L.Icon.Default.prototype as {_getIconUrl?: string})._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
@@ -96,4 +96,5 @@ const LeafletMap = ({
   );
 };
 
-export {LeafletMap, getAddressFromCoordinates};
+export { getAddressFromCoordinates, LeafletMap };
+
